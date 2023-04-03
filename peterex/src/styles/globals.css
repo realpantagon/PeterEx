@@ -35,3 +35,12 @@ th {
   justify-content: center;
   margin-top: 50px;
 }
+
+.input {
+  width: 150px;
+  padding: 5px;
+  font-size: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
