@@ -63,7 +63,7 @@ export default function Home() {
                 />
               </td>
               <td style={{ fontSize: "50px" }}>{row[1]}</td>
-              <td style={{ fontSize: "50px" }}>{row[2]}</td>
+              <td style={{ fontSize: "35px" }}>{row[2]}</td>
               <td style={{ fontSize: "50px" }}>
                 <input
                   type="text"

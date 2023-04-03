@@ -13,6 +13,7 @@ h2 {
 table {
   width: 100%;
   border-collapse: collapse;
+  margin: 0;
   font-family: "Nunito", sans-serif;
 }
 
@@ -22,6 +23,7 @@ td {
   text-align: left;
   border-bottom: 1px solid #ddd;
   font-family: "Nunito", sans-serif;
+  text-align: right; /* add this line */
 }
 
 th {
@@ -41,27 +43,30 @@ th {
   width: 30px;
   height: auto;
   vertical-align: middle;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .container {
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  height: 100%;
+  width: 100%; /* add this line */
 }
 
 .input {
-  width: 150px;
+  width: 60%;
   padding: 5px;
   font-size: 40px;
   border: none;
   border-radius: 5px;
   background-color: #f0f0f0;
   font-family: "Nunito", sans-serif;
+  margin-left: auto;
 }
 
 .PeterExchange {
   position: relative;
-  /* top: 20px; */
   font-size: 60px;
 }
