@@ -70,6 +70,7 @@ export default function Home() {
                   onChange={(event) =>
                     handleBuyingRateChange(index, event.target.value)
                   }
+                  className="input"
                 />
               </td>
             </tr>
