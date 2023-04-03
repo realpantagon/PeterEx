@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1 className="PeterExchange">Peter Exchange</h1>
+      <h1 className="PeterExchange">PETER EXCHANGE</h1>
       <table>
         <thead>
           <tr>
