@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
+
 export default function Home() {
-  const tableData = [
+  const [tableData, setTableData] = useState([
     ["usa.png", "USD", "US Dollar $50-100", ""],
     ["usa.png", "USD", "US Dollar $5-20", ""],
     ["usa.png", "USD", "US Dollar $1", ""],
@@ -18,7 +20,25 @@ export default function Home() {
     ["malaysia.png", "MYR", "Malaysian Ringgit", ""],
     ["china.png", "CNY", "Chinese Yuan Renminbi", ""],
     ["south-korea.png", "KRW", "South Korean Won", ""],
-  ];
+  ]);
+
+  useEffect(() => {
+    // Retrieve the stored buying rates from Local Storage
+    const storedData = JSON.parse(localStorage.getItem("tableData"));
+    if (storedData) {
+      setTableData(storedData);
+    }
+  }, []);
+
+  const handleBuyingRateChange = (index, value) => {
+    const newData = [...tableData];
+    newData[index][3] = value;
+    setTableData(newData);
+
+    // Store the updated buying rates in Local Storage
+    localStorage.setItem("tableData", JSON.stringify(newData));
+  };
+
   return (
     <div className="container">
       <table>
@@ -43,7 +63,15 @@ export default function Home() {
               </td>
               <td style={{ fontSize: "50px" }}>{row[1]}</td>
               <td style={{ fontSize: "50px" }}>{row[2]}</td>
-              <td style={{ fontSize: "50px" }}>{row[3]}</td>
+              <td style={{ fontSize: "50px" }}>
+                <input
+                  type="text"
+                  value={row[3]}
+                  onChange={(event) =>
+                    handleBuyingRateChange(index, event.target.value)
+                  }
+                />
+              </td>
             </tr>
           ))}
         </tbody>
