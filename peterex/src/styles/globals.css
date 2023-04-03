@@ -1,6 +1,19 @@
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+  font-family: "Kanit", sans-serif;
+}
+
+h2 {
+  font-family: "Press Start 2P", cursive;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
+  font-family: "Nunito", sans-serif;
 }
 
 th,
@@ -8,6 +21,7 @@ td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  font-family: "Nunito", sans-serif;
 }
 
 th {
@@ -43,4 +57,5 @@ th {
   border: none;
   border-radius: 5px;
   background-color: #f0f0f0;
+  font-family: "Nunito", sans-serif;
 }
