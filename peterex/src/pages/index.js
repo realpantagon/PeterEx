@@ -32,8 +32,11 @@ export default function Home() {
   
 
   const handleBuyingRateChange = (index, value) => {
+    // Add a "0" in front of the decimal point if the input starts with a "."
+    const formattedValue = value.startsWith(".") ? "0" + value : value;
+
     const newData = [...tableData];
-    newData[index][3] = value;
+    newData[index][3] = formattedValue;
     setTableData(newData);
 
     // Store the updated buying rates in Local Storage
@@ -77,7 +80,7 @@ export default function Home() {
         <tbody className="table-body">
           {tableData.map((row, index) => (
             <tr key={index}>
-              <td>
+              <td>  
                 <img
                   src={`/flags/${row[0]}`}
                   alt={row[2]}
