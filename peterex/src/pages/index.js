@@ -92,16 +92,16 @@ export default function Home() {
               <td style={{ fontSize: "35px" }}>{row[2]}</td>
               <td style={{ fontSize: "50px" }}>
               <input
-  type="number"
-  step="any"
-  min="0"
-  value={row[3]}
-  onChange={(event) => handleBuyingRateChange(index, event.target.value)}
-  onFocus={(event) => event.target.select()}
-  onKeyDown={(event) => handleKeyDown(event, index)}
-  className="input"
-  data-index={index}
-/>
+                  type="number"
+                  step="any"
+                  min="0"
+                  value={row[3]}
+                  onChange={(event) => handleBuyingRateChange(index, event.target.value)}
+                  onFocus={(event) => event.target.select()}
+                  onKeyDown={(event) => handleKeyDown(event, index)}
+                  className="input"
+                  data-index={index}
+              />
 
               </td>
             </tr>
