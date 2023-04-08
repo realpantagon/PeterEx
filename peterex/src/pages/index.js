@@ -29,6 +29,7 @@ export default function Home() {
       setTableData(storedData);
     }
   }, []);
+  
 
   const handleBuyingRateChange = (index, value) => {
     const newData = [...tableData];
@@ -38,6 +39,28 @@ export default function Home() {
     // Store the updated buying rates in Local Storage
     localStorage.setItem("tableData", JSON.stringify(newData));
   };
+
+  const handleKeyDown = (event, index) => {
+    // keyCode 38: Up arrow, keyCode 40: Down arrow
+    if (event.keyCode === 38 || event.keyCode === 40) {
+      event.preventDefault();
+
+      const nextIndex =
+        event.keyCode === 38
+          ? (index - 1 + tableData.length) % tableData.length
+          : (index + 1) % tableData.length;
+
+      const inputElement = document.querySelector(
+        `input[data-index="${nextIndex}"]`
+      );
+
+      if (inputElement) {
+        inputElement.focus();
+        inputElement.select();
+      }
+    }
+  };
+
 
   return (
     <div className="container">
@@ -65,13 +88,16 @@ export default function Home() {
               <td style={{ fontSize: "50px" }}>{row[1]}</td>
               <td style={{ fontSize: "35px" }}>{row[2]}</td>
               <td style={{ fontSize: "50px" }}>
-                <input
+              <input
                   type="text"
                   value={row[3]}
                   onChange={(event) =>
                     handleBuyingRateChange(index, event.target.value)
                   }
+                  onFocus={(event) => event.target.select()}
+                  onKeyDown={(event) => handleKeyDown(event, index)}
                   className="input"
+                  data-index={index}
                 />
               </td>
             </tr>
